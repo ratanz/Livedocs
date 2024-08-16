@@ -1,4 +1,4 @@
-"use server";
+'use server';
 
 import { nanoid } from "nanoid";
 import { liveblocks } from "@/lib/liveblocks";
@@ -58,7 +58,6 @@ export const getDocument = async ({
   }
 };
 
-
 export const updateDocument = async (roomId: string, title: string) => {
   try {
     const room = await liveblocks.updateRoom(roomId, {
@@ -75,3 +74,19 @@ export const updateDocument = async (roomId: string, title: string) => {
     console.log(`Error updating room: ${error}`);
   }
 }
+
+export const getDocuments = async (email : string) => {
+  try {
+    const rooms = await liveblocks.getRooms({userId: email});
+
+    // const hasAcess = Object.keys(room.usersAccesses).includes(userId);
+
+    // if (!hasAcess) {
+    //   throw new Error("You do not have access to this room");
+    // }
+
+    return parseStringify(rooms);
+  } catch (error) {
+    console.log(`Error getting rooms: ${error}`);
+  }
+};
