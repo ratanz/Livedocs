@@ -24,9 +24,9 @@ const AddDocumentBtn = ({ userId, email }: AddDocumentBtnProps) => {
 
   return (
     <Button 
-      type='button'  // Changed from 'submit' to 'button' to prevent default form submission behavior
+      type='button' 
       onClick={addDocumentHandler} 
-      className='flex items-center gap-2 p-2 shadow-md gradient-blue'
+      className='flex items-center gap-2 p-2 shadow-md gradient-blue rounded-lg '
     >
       <Image
         src="/assets/icons/add.svg"
@@ -35,7 +35,8 @@ const AddDocumentBtn = ({ userId, email }: AddDocumentBtnProps) => {
         height={24}
         className='block'
       />
-      <p className='hidden sm:block'>Start a blank document</p>
+      <p className='hidden sm:block '>Start a blank document</p>
+      <p className='md:hidden'>New Document </p>
     </Button>
   )
 }
